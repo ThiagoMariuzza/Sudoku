@@ -19,7 +19,7 @@ def nums_input():
     return nums
 
 
-def creat_matriz():
+def creat_matrix():
     m = []
     while len(m) < 9:
         fila = []
@@ -30,13 +30,24 @@ def creat_matriz():
             m.append(fila)
     for i in m:
         print(i)
+    return m
+
+
+def check_matrix(m):
+    for i in range(9):
+        for j in range(9):
+            if m[i][j] == 0:
+                if m[i][j] == m[i+1][j]:
+                    return False
+    return True
 
 
 def principal():
     print('yes')
     op = int(input('Ingrese accion:'))
     if op == int(1):
-        creat_matriz()
+        matrix = creat_matrix()
+        print(check_matrix(matrix))
 
 
 if __name__ == '__main__':
